@@ -1,0 +1,9 @@
+﻿User Id,Current plan,Subscription Start Date,Next Billing Date*,Is Active
+user_hc,5x5,"Apr 20, 2020",10/20/2020,Yes
+user_lp,2x4,"Mar 3, 2020",10/3/2020,Yes
+user_qc,,"Jan 1, 2020",,No
+user_sc,5x15,"Mar 15, 2020",10/15/2020,Yes
+user_nc,,"Feb 2, 2020",,No
+user_pu,5x5,"Jan 1, 2020",10/1/2020,Yes
+user_xy,10x10,"Mar 22, 2020",9/22/2020,Yes
+user_ab,20x10,"Apr 4, 2020",10/4/2020,Yes

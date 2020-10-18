@@ -1,0 +1,13 @@
+﻿User Id,Appointment Date,Storage plan,Final Delivery Date/Subscription End Date
+user_ap,"Jan 31, 2020",2x2,
+user_ag,"May 31, 2020",5x5,
+user_gf,"Mar 3, 2020",10x10,"Mar 20, 2020"
+user_gf,"Mar 20, 2020",2x4, "Jul 20, 2020"
+user_st,"Dec 32, 2020",5x15,
+user_ee,"Nov 20, 2019",5x5,"Mar 5, 2020"
+user_ee,"May 3, 2020",5x15,
+user_ee,"Mar 5, 2020",5x5,"May 2, 2020"
+user_cc,"Feb 28, 2020",2x2,
+user_cc,"Feb 28, 2019",5x5,
+user_dd,"Mar 22, 2020",10x10,
+user_dd,"Oct 18, 2020",20x10,
