@@ -54,6 +54,9 @@ Here is an example:
 }
 ```
 
+7. To run unit tests type:
+
+`./manage.py test`
 
 # NOTE
 
