@@ -37,12 +37,12 @@ def get_next_billing(request):
 
     user_active_plans = Plan.objects.filter(Q(user_id=user_id) & 
                         Q(end_date__isnull=True)|Q(end_date__gte=CONSTANT_TASK_ASSIGNMENT_DATE)).order_by('-start_date')
-    print("USER ACTIVE PLANS: " + str(user_active_plans))
+    #print("USER ACTIVE PLANS: " + str(user_active_plans))
 
     # No active plans found. Look for inactive plans
     if (len(user_active_plans) == 0):
         user_inactive_plans = Plan.objects.filter(user_id=user_id,end_date__lt=CONSTANT_TASK_ASSIGNMENT_DATE).order_by('-start_date')
-        print("USER INACTIVE PLANS: " + str(user_active_plans))
+        #print("USER INACTIVE PLANS: " + str(user_active_plans))
 
         # User_id has never had a plan with us. Return an error
         if (len(user_inactive_plans) == 0):
@@ -80,7 +80,7 @@ def get_next_billing(request):
 
         output_dict['subscription_start_date'] = start_date
         output_dict['is_active'] = 'Yes'
-        output_dict['next_billing_date'] = datetime.strftime(earliest_billing_date, '%b %d, %Y') if earliest_billing_date else None
+        output_dict['next_billing_date'] = datetime.strftime(earliest_billing_date, '%m/%d/%Y') if earliest_billing_date else None
         output_dict['current_plan'] = current_plan
 
     output = json.dumps(output_dict, indent=4, sort_keys=True)           

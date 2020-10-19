@@ -15,27 +15,31 @@ class Command(BaseCommand):
 
         filename = options['filename'][0]
 
-        with open('./customers/data/' + filename, newline='') as csvfile:
-            plan_reader = csv.reader(csvfile, delimiter=',')
-            header = True
-            for row in plan_reader:
-                if (header):
-                    header = False
-                    continue
+        populate_from_csv(filename)
 
-                user_id = row[0]
-                storage_plan=row[2]
-                try:
-                    start_date = format_input_date(row[1])
-                    end_date=format_input_date(row[3])
-                except Exception as e:
-                    self.stdout.write("Could not format date. Skipping row: " + str(row) + " " + str(e))
-                    continue
+def populate_from_csv(filename):
 
-                plan = Plan.objects.create(user_id=user_id, start_date=start_date, storage_plan=storage_plan, end_date=end_date)
-                plan.save()
+    with open('./customers/data/' + filename, newline='') as csvfile:
+        plan_reader = csv.reader(csvfile, delimiter=',')
+        header = True
+        for row in plan_reader:
+            if (header):
+                header = False
+                continue
 
-            self.stdout.write(self.style.SUCCESS('Successfully populated Plan table'))
+            user_id = row[0]
+            storage_plan=row[2]
+            try:
+                start_date = format_input_date(row[1])
+                end_date=format_input_date(row[3])
+            except Exception as e:
+                print("Could not format date. Skipping row: " + str(row) + " " + str(e))
+                continue
+
+            plan = Plan.objects.create(user_id=user_id, start_date=start_date, storage_plan=storage_plan, end_date=end_date)
+            plan.save()
+
+        print('Successfully populated Plan table')
 
 
 def format_input_date(input_date):
